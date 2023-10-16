@@ -3,6 +3,7 @@ const resetButton = document.querySelector('.resetBtn');
 const radioSelector = document.querySelectorAll('input');
 const remakeButton = document.querySelector('.recreateBtn');
 
+let coloringStyle = 2;
 
 function getRadioEl() {
     let selectedValue = 0;
@@ -42,11 +43,16 @@ function makeBoxes(numberOfBoxes) {
 
 boxHolder.addEventListener('mouseover', (event) => {
     const isDivBox = event.target.lastChild === null;
-
     if (!isDivBox) {
         return;
     }
-    event.target.style.backgroundColor = 'black';
+    if (coloringStyle === 1) {
+        event.target.style.backgroundColor = 'black';
+    }
+    else if (coloringStyle === 2) {
+        const randomColor = Math.floor(Math.random()*16777215).toString(16);
+        event.target.style.backgroundColor =  "#" + randomColor;
+    }
 });
 
 function resetGrid() {
