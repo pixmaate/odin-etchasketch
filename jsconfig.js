@@ -4,16 +4,57 @@ const radioSelector = document.querySelectorAll('input');
 const remakeButton = document.querySelector('.recreateBtn');
 const blackButton = document.querySelector('#blackBtn');
 const colorButton = document.querySelector('#rgbBtn');
+const shadingButton = document.querySelector('#shadingBtn');
 
 let coloringStyle = 1;
+blackButton.style.backgroundColor = 'teal';
+
+function setButtonColors() {
+    if (coloringStyle === 1) {
+        blackButton.style.backgroundColor = 'teal';
+        colorButton.style.backgroundColor = '';
+        shadingButton.style.backgroundColor = '';
+    }
+    else if (coloringStyle === 2) {
+        blackButton.style.backgroundColor = '';
+        colorButton.style.backgroundColor = 'teal';
+        shadingButton.style.backgroundColor = '';
+    }
+    else if (coloringStyle === 3) {
+        blackButton.style.backgroundColor = 'teal';
+        colorButton.style.backgroundColor = '';
+        shadingButton.style.backgroundColor = 'teal';
+    }
+    else if (coloringStyle === 4) {
+        blackButton.style.backgroundColor = '';
+        colorButton.style.backgroundColor = 'teal';
+        shadingButton.style.backgroundColor = 'teal';
+    }
+    
+}
 
 blackButton.addEventListener('click', () => {
     coloringStyle = 1;
+    setButtonColors()
+
 });
 
 colorButton.addEventListener('click', () => {
     coloringStyle = 2;
+    setButtonColors()
 });
+
+shadingButton.addEventListener('click', () => {
+    if (coloringStyle === 1) {
+        coloringStyle = 3;
+
+    }
+    else if (coloringStyle === 2) {
+        coloringStyle = 4;
+    }
+    setButtonColors()
+});
+
 
 function getRadioEl() {
     let selectedValue = 0;
@@ -58,7 +99,14 @@ boxHolder.addEventListener('mouseover', (event) => {
         return;
     }
     if (coloringStyle === 1) {
-
+       event.target.style.backgroundColor = 'black';
+       event.target.style.opacity = 1;       
+    }
+    else if (coloringStyle === 2) {
+        const randomColor = Math.floor(Math.random()*16777215).toString(16);
+        event.target.style.backgroundColor =  "#" + randomColor;
+    }
+    else if (coloringStyle === 3) {
         if (event.target.style.opacity == '') {
             currentOpacity = currentOpacity;
         }
@@ -66,13 +114,22 @@ boxHolder.addEventListener('mouseover', (event) => {
             let oldOpacity = event.target.style.opacity
             currentOpacity = parseFloat(oldOpacity) + 0.1;
         }
-        event.target.style.backgroundColor = 'black';
+        event.target.style.backgroundColor = 'black';    
         event.target.style.opacity = currentOpacity;
-        
     }
-    else if (coloringStyle === 2) {
-        const randomColor = Math.floor(Math.random()*16777215).toString(16);
-        event.target.style.backgroundColor =  "#" + randomColor;
+    else if (coloringStyle === 4) {
+        if (event.target.style.opacity == '' || event.target.style.backgroundColor === 'black') {
+            const randomColor = Math.floor(Math.random()*16777215).toString(16);
+            event.target.style.backgroundColor =  "#" + randomColor;
+            event.target.style.opacity = currentOpacity;
+
+        }
+        else {
+            let oldOpacity = event.target.style.opacity
+            currentOpacity = parseFloat(oldOpacity) + 0.1;
+            event.target.style.opacity = currentOpacity;
+            
+        }
     }
 });
 
