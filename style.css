@@ -23,9 +23,11 @@ body {
     flex-wrap: wrap;
 }
 
-.afterContent {
+.afterContent,
+.beforeContent {
     display: flex;
-    gap: 10px;
+    gap: 24px;
     justify-content: center;
     align-items: center;
 }
+

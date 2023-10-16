@@ -2,8 +2,18 @@ const boxHolder = document.querySelector('.contentHolder');
 const resetButton = document.querySelector('.resetBtn');
 const radioSelector = document.querySelectorAll('input');
 const remakeButton = document.querySelector('.recreateBtn');
+const blackButton = document.querySelector('#blackBtn');
+const colorButton = document.querySelector('#rgbBtn');
 
-let coloringStyle = 2;
+let coloringStyle = 1;
+
+blackButton.addEventListener('click', () => {
+    coloringStyle = 1;
+});
+
+colorButton.addEventListener('click', () => {
+    coloringStyle = 2;
+});
 
 function getRadioEl() {
     let selectedValue = 0;
