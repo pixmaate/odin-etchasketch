@@ -53,11 +53,22 @@ function makeBoxes(numberOfBoxes) {
 
 boxHolder.addEventListener('mouseover', (event) => {
     const isDivBox = event.target.lastChild === null;
+    let currentOpacity = 0.1;
     if (!isDivBox) {
         return;
     }
     if (coloringStyle === 1) {
+
+        if (event.target.style.opacity == '') {
+            currentOpacity = currentOpacity;
+        }
+        else {
+            let oldOpacity = event.target.style.opacity
+            currentOpacity = parseFloat(oldOpacity) + 0.1;
+        }
         event.target.style.backgroundColor = 'black';
+        event.target.style.opacity = currentOpacity;
+        
     }
     else if (coloringStyle === 2) {
         const randomColor = Math.floor(Math.random()*16777215).toString(16);
