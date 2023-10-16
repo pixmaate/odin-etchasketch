@@ -5,7 +5,7 @@ const remakeButton = document.querySelector('.recreateBtn');
 
 
 function getRadioEl() {
-    let selectedValue = 12;
+    let selectedValue = 0;
     radioSelector.forEach(el => {
         if (el.checked) {
             selectedValue = el.value
@@ -15,7 +15,12 @@ function getRadioEl() {
 }
 
 remakeButton.addEventListener('click', () => {
-
+    let child = boxHolder.lastElementChild;
+    while (child) {
+        boxHolder.removeChild(child);
+        child = boxHolder.lastElementChild;
+    }
+    makeBoxes(getRadioEl());
 });
 
 
