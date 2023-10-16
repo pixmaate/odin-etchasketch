@@ -1,9 +1,18 @@
 body {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 #mainWrapper {
     display: flex;
     flex-direction: column;
+
+}
+
+.contentHolder {
+    width: 480px;
+    height: 480px;
+    border-style: solid;
+    border-color:brown;
 }
