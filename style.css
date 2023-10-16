@@ -14,7 +14,7 @@ body {
     width: 480px;
     height: 480px;
     border-style: solid;
-    border-color:brown;
+    border-color:black;
     display: flex;
     flex-wrap: wrap;
 }

@@ -11,4 +11,14 @@ function makeBoxes(numberOfBoxes) {
     
 };
 
-makeBoxes(24);
+boxHolder.addEventListener('mouseover', (event) => {
+    const isDivBox = event.target.lastChild === null;
+
+    if (!isDivBox) {
+        return;
+    }
+    event.target.style.backgroundColor = 'black';
+});
+
+
+makeBoxes(10);
