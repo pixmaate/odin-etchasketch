@@ -15,4 +15,6 @@ body {
     height: 480px;
     border-style: solid;
     border-color:brown;
+    display: flex;
+    flex-wrap: wrap;
 }
