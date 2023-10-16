@@ -107,7 +107,7 @@ boxHolder.addEventListener('mouseover', (event) => {
         event.target.style.backgroundColor =  "#" + randomColor;
     }
     else if (coloringStyle === 3) {
-        if (event.target.style.opacity == '') {
+        if (event.target.style.opacity == '' || event.target.style.backgroundColor != 'black') {
             currentOpacity = currentOpacity;
         }
         else {
