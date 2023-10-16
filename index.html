@@ -8,7 +8,7 @@
     <script type = "text/javascript" src="./jsconfig.js" defer></script>
 </head>
 <body>
-    <div id="#mainWrapper">
+    <div id="mainWrapper">
         <div class="titleHolder">
 
         </div>
@@ -17,6 +17,18 @@
         </div>
         <div class="afterContent">
             <button class="resetBtn">Reset Grid</button>
+            <div class="afterContent">
+                <p>Grid Size: </p>
+                <input type="radio" id="12" name="girdSelector" value="12">
+                <label for="12">12x12</label>
+                <input type="radio" id="24" name="girdSelector" value="24">
+                <label for="24">24x24</label>
+                <input type="radio" id="48" name="girdSelector" value="48">
+                <label for="48">48x48</label>
+                <input type="radio" id="64" name="girdSelector" value="64">
+                <label for="64">64x64</label>
+            </div>
+            <button class="recreateBtn">Remake Grid</button>
         </div>
     </div>
 </body>

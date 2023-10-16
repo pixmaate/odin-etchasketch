@@ -1,5 +1,23 @@
 const boxHolder = document.querySelector('.contentHolder');
 const resetButton = document.querySelector('.resetBtn');
+const radioSelector = document.querySelectorAll('input');
+const remakeButton = document.querySelector('.recreateBtn');
+
+
+function getRadioEl() {
+    let selectedValue = 12;
+    radioSelector.forEach(el => {
+        if (el.checked) {
+            selectedValue = el.value
+        }
+    })
+    return selectedValue;
+}
+
+remakeButton.addEventListener('click', () => {
+
+});
+
 
 resetButton.addEventListener('click', () =>{
     resetGrid();
@@ -34,4 +52,4 @@ function resetGrid() {
 }
 
 
-makeBoxes(10);
+makeBoxes(12);
