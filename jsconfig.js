@@ -105,6 +105,7 @@ boxHolder.addEventListener('mouseover', (event) => {
     else if (coloringStyle === 2) {
         const randomColor = Math.floor(Math.random()*16777215).toString(16);
         event.target.style.backgroundColor =  "#" + randomColor;
+        event.target.style.opacity = 1;  
     }
     else if (coloringStyle === 3) {
         if (event.target.style.opacity == '' || event.target.style.backgroundColor != 'black') {
